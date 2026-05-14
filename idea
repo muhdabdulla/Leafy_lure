@@ -1,0 +1,159 @@
+Create a premium cinematic landing page for an organic henna cone brand called “Leafy_lure”.
+
+The website aesthetic should feel like a luxury organic beauty/skincare brand mixed with traditional mehndi artistry. The design must be elegant, minimal, smooth, immersive, and modern — not flashy ecommerce style.
+
+Use:
+
+* Beige, olive green, dark brown, matte black, and soft gold accents
+* Soft organic gradients
+* Minimal typography
+* Smooth animations
+* Premium spacing and layout
+
+The website should include these sections and interactions:
+
+---
+
+HERO SECTION (MOST IMPORTANT)
+
+Create a fullscreen cinematic hero section.
+
+Background:
+
+* Soft beige/earthy gradient background
+* Tiny floating henna leaves moving slowly across the screen
+* Leaves should have natural wind-like motion
+* Add depth/parallax to the leaves
+
+Main Animation:
+
+* Initially the screen is filled with moving organic leaves
+* As the page loads, the leaves gather and slowly reveal a premium 3D henna cone in the center
+* The cone should float gently and rotate slightly
+* Add subtle lighting and shadow for realistic premium feel
+
+Mouse Interaction:
+
+* Leaves slightly react to cursor movement
+* Cone rotates slightly based on mouse movement
+* Add soft glow/light follow effect near cursor
+
+Hero Content:
+Large luxury typography:
+“Leafy_lure”
+
+Tagline:
+“Pure Organic Henna Crafted Naturally”
+
+Buttons:
+
+* Shop Now
+* Explore Designs
+
+Buttons should have:
+
+* Glassmorphism or soft matte style
+* Smooth hover animations
+
+Hero section should feel cinematic like Apple or luxury skincare websites.
+
+Use GSAP-style scroll animations and smooth transitions throughout the site.
+
+---
+
+SECTION 2 — PRODUCT BENEFITS
+
+Create a clean modern section showcasing product features.
+
+Include animated cards or icons for:
+
+* 100% Organic
+* Chemical Free
+* Dark Natural Stain
+* Smooth Application
+* Skin Friendly
+
+Use soft fade-up animations on scroll.
+Add subtle moving leaf particles in background.
+
+---
+
+SECTION 3 — INGREDIENTS / NATURAL STORY
+
+Create a storytelling section showing:
+
+* Henna leaves
+* Natural ingredients
+* Organic preparation feel
+
+Use layered parallax scrolling and cinematic transitions.
+
+Add elegant text blocks explaining:
+
+* Organic ingredients
+* Natural dark stain
+* Handmade quality
+
+Use earthy visuals and smooth reveal animations.
+
+---
+
+SECTION 4 — MEHNDI GALLERY
+
+Create a premium gallery section with beautiful mehndi-on-hand photography.
+
+Layout:
+
+* Masonry grid
+* Hover zoom effects
+* Smooth fade-in on scroll
+
+The gallery should feel luxurious and Instagram-worthy.
+
+---
+
+SECTION 5 — CALL TO ACTION
+
+Large centered section with elegant typography.
+
+Text:
+“Bring Nature to Your Art”
+
+Add premium animated button:
+“Shop Leafy_lure”
+
+Background:
+
+* Soft animated mehndi patterns
+* Floating particles
+* Subtle lighting
+
+---
+
+GLOBAL WEBSITE REQUIREMENTS
+
+* Smooth scrolling
+* Premium cinematic transitions
+* Minimal luxury aesthetic
+* Organic beauty brand feel
+* Responsive design for mobile and desktop
+* Modern UI/UX
+* High-end product presentation
+
+Animation Style:
+
+* Smooth
+* Slow
+* Elegant
+* Premium
+* Natural
+
+Avoid:
+
+* Bright flashy colors
+* Overcrowded UI
+* Cheap ecommerce appearance
+* Harsh animations
+
+Inspiration style:
+Apple product pages, luxury skincare brands, organic beauty brands, cinematic scroll storytelling websites.
