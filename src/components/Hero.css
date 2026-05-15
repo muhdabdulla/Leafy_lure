@@ -1,17 +1,7 @@
 .hero-section {
-  /* Make section very tall so we have plenty of room to scroll and scrub the 240 frames */
-  height: 350vh;
   position: relative;
-  background: var(--color-beige);
-}
-
-.hero-sticky-container {
-  position: sticky;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100vh;
-  /* Making the visible area a bit taller/longer so portrait images fit nicely */
   min-height: 100vh;
   overflow: hidden;
   display: flex;
