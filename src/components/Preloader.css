@@ -1,0 +1,32 @@
+.preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-matte-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.preloader-leaf {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+}
+
+.preloader-leaf img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.preloader-text {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  color: var(--color-beige);
+  letter-spacing: 2px;
+}
