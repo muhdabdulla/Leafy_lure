@@ -9,8 +9,33 @@ const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [frameIndex, setFrameIndex] = useState(1);
   const containerRef = useRef(null);
+  const loadedCountRef = useRef(0);
 
-  // Auto-play animation loop
+  // Intelligent sequential preload
+  useEffect(() => {
+    let isMounted = true;
+    const preloadImages = async () => {
+      // Preload the very first frame immediately so it shows instantly
+      loadedCountRef.current = 1;
+      
+      for (let i = 2; i <= TOTAL_FRAMES; i++) {
+        if (!isMounted) break;
+        await new Promise((resolve) => {
+          const img = new Image();
+          img.src = `/images/herosection/ezgif-frame-${String(i).padStart(3, '0')}.png`;
+          img.onload = resolve;
+          img.onerror = resolve; // Skip missing frames
+        });
+        if (isMounted) {
+          loadedCountRef.current = i;
+        }
+      }
+    };
+    preloadImages();
+    return () => { isMounted = false; };
+  }, []);
+
+  // Auto-play animation loop tied to loaded frames
   useEffect(() => {
     let animationFrameId;
     let lastTime = performance.now();
@@ -20,10 +45,9 @@ const Hero = () => {
     const animate = (currentTime) => {
       if (currentTime - lastTime >= frameInterval) {
         setFrameIndex((prev) => {
-          if (prev >= TOTAL_FRAMES) {
-            return LOOP_START_FRAME;
-          }
-          return prev + 1;
+          let next = prev >= TOTAL_FRAMES ? LOOP_START_FRAME : prev + 1;
+          // Only advance if the next frame has been downloaded (acts like buffering)
+          return next <= loadedCountRef.current ? next : prev;
         });
         lastTime = currentTime;
       }
@@ -48,14 +72,6 @@ const Hero = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Preload initial frames
-  useEffect(() => {
-    for (let i = 1; i <= 20; i++) {
-      const img = new Image();
-      img.src = `/images/herosection/ezgif-frame-${String(i).padStart(3, '0')}.png`;
-    }
   }, []);
 
   return (
