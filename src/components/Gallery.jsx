@@ -3,10 +3,13 @@ import { motion } from 'framer-motion';
 import './Gallery.css';
 
 const images = [
-  { src: '/gallery_1.png', alt: 'Intricate Mehndi Design' },
-  { src: '/gallery_2.png', alt: 'Minimalist Mehndi Design' },
-  { src: '/gallery_3.png', alt: 'Modern Mehndi Design' },
-  { src: '/gallery_4.png', alt: 'Traditional Bridal Mehndi' },
+  { src: '/images/gallery_1.jpeg', alt: 'Intricate Mehndi Design' },
+  { src: '/images/gallery_2.jpeg', alt: 'Minimalist Mehndi Design' },
+  { src: '/images/gallery_3.jpeg', alt: 'Modern Mehndi Design' },
+  { src: '/images/gallery_4.jpeg', alt: 'Traditional Bridal Mehndi' },
+  { src: '/images/gallery_5.jpeg', alt: 'Elegant Mehndi Design' },
+  { src: '/images/gallery_6.jpeg', alt: 'Beautiful Henna Art' },
+  { src: '/images/gallery_7.jpeg', alt: 'Leafy Lure Signature' },
 ];
 
 const Gallery = () => {
