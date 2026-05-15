@@ -23,14 +23,14 @@ const ShopModal = ({ isOpen, onClose }) => {
             <button className="close-btn" onClick={onClose}>&times;</button>
             <h2 className="modal-title">Our Products</h2>
             <div className="products-grid">
-              
+
               {/* Product 1 */}
               <div className="product-card">
                 <div className="product-image-container">
                   <img src="/cone.png" alt="Organic Henna Cones" />
                 </div>
                 <h3>Organic Henna Cones</h3>
-                <p className="price">₹50 per cone</p>
+                <p className="price">₹50/-</p>
               </div>
 
               {/* Product 2 */}
@@ -39,17 +39,17 @@ const ShopModal = ({ isOpen, onClose }) => {
                   <img src="/haircone.jpeg" alt="Hair Henna Cones" />
                 </div>
                 <h3>Hair Henna Cones</h3>
-                <p className="price">₹250</p>
+                <p className="price">₹250/-</p>
               </div>
 
             </div>
-            
+
             <div className="order-info">
               <p>To place an order, please contact us via Instagram:</p>
-              <a 
-                href="https://www.instagram.com/leafy_lure?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.instagram.com/leafy_lure?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary instagram-btn"
               >
                 Message @leafy_lure
