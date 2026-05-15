@@ -2,60 +2,32 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Hero.css';
 
-const TOTAL_FRAMES = 240;
-const LOOP_START_FRAME = 100; // Adjust this to the frame where rotation starts after leaves go
+const LOOP_START_TIME = 4; // Frame 100 at 30fps is ~3.33s. Adjust this to the exact second where rotation starts.
 
 const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [frameIndex, setFrameIndex] = useState(1);
+  const mainVideoRef = useRef(null);
+  const bgVideoRef = useRef(null);
   const containerRef = useRef(null);
-  const loadedCountRef = useRef(0);
 
-  // Intelligent sequential preload
+  // Auto-play and loop video at specific time
   useEffect(() => {
-    let isMounted = true;
-    const preloadImages = async () => {
-      // Preload the very first frame immediately so it shows instantly
-      loadedCountRef.current = 1;
-      
-      for (let i = 2; i <= TOTAL_FRAMES; i++) {
-        if (!isMounted) break;
-        await new Promise((resolve) => {
-          const img = new Image();
-          img.src = `/images/herosection/ezgif-frame-${String(i).padStart(3, '0')}.png`;
-          img.onload = resolve;
-          img.onerror = resolve; // Skip missing frames
-        });
-        if (isMounted) {
-          loadedCountRef.current = i;
-        }
+    const mainVid = mainVideoRef.current;
+    const bgVid = bgVideoRef.current;
+    if (!mainVid || !bgVid) return;
+
+    const handleTimeUpdate = () => {
+      // If we've reached the very end of the video, jump back to LOOP_START_TIME
+      if (mainVid.duration && mainVid.currentTime >= mainVid.duration - 0.05) {
+        mainVid.currentTime = LOOP_START_TIME;
+        bgVid.currentTime = LOOP_START_TIME;
+        mainVid.play().catch(() => { });
+        bgVid.play().catch(() => { });
       }
     };
-    preloadImages();
-    return () => { isMounted = false; };
-  }, []);
 
-  // Auto-play animation loop tied to loaded frames
-  useEffect(() => {
-    let animationFrameId;
-    let lastTime = performance.now();
-    const fps = 30; // Adjust FPS for speed
-    const frameInterval = 1000 / fps;
-
-    const animate = (currentTime) => {
-      if (currentTime - lastTime >= frameInterval) {
-        setFrameIndex((prev) => {
-          let next = prev >= TOTAL_FRAMES ? LOOP_START_FRAME : prev + 1;
-          // Only advance if the next frame has been downloaded (acts like buffering)
-          return next <= loadedCountRef.current ? next : prev;
-        });
-        lastTime = currentTime;
-      }
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    animationFrameId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrameId);
+    mainVid.addEventListener('timeupdate', handleTimeUpdate);
+    return () => mainVid.removeEventListener('timeupdate', handleTimeUpdate);
   }, []);
 
   // Mouse parallax tracking
@@ -78,18 +50,24 @@ const Hero = () => {
     <section ref={containerRef} className="hero-section">
       {/* Blurred Background to fill empty space seamlessly */}
       <div className="hero-background-blur-wrapper">
-        <motion.img
-          src={`/images/herosection/ezgif-frame-${String(frameIndex).padStart(3, '0')}.png`}
-          alt=""
+        <video
+          ref={bgVideoRef}
+          src="/images/herosection/hero-video.mp4"
+          autoPlay
+          muted
+          playsInline
           className="hero-background-blur"
         />
       </div>
 
-      {/* Image Sequence tied to scroll */}
+      {/* Video Sequence */}
       <div className="hero-image-wrapper">
-        <motion.img
-          src={`/images/herosection/ezgif-frame-${String(frameIndex).padStart(3, '0')}.png`}
-          alt="Leafy_lure Henna Animation"
+        <motion.video
+          ref={mainVideoRef}
+          src="/images/herosection/hero-video.mp4"
+          autoPlay
+          muted
+          playsInline
           className="hero-cone-sequence"
           style={{
             x: mousePos.x * -20,
