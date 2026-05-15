@@ -39,9 +39,6 @@ const Gallery = () => {
             >
               <div className="img-overlay">
                 <img src={img.src} alt={img.alt} />
-                <div className="hover-content">
-                  <span className="zoom-icon">+</span>
-                </div>
               </div>
             </motion.div>
           ))}

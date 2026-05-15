@@ -4,6 +4,7 @@ import Benefits from './components/Benefits';
 import Story from './components/Story';
 import Gallery from './components/Gallery';
 import CTA from './components/CTA';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Story />
       <Gallery />
       <CTA />
+      <Footer />
     </div>
   );
 }

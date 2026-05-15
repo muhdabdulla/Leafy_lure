@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import ShopModal from './ShopModal';
 import './CTA.css';
 
 const CTA = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <section className="cta-section section-container">
+    <>
+      <section className="cta-section section-container">
       {/* Animated mehndi pattern background overlay */}
       <div className="cta-pattern-bg" />
       
@@ -42,10 +46,12 @@ const CTA = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="cta-title">Bring Nature to Your Art</h2>
-          <button className="btn-primary cta-btn">Shop Leafy_lure</button>
+          <button className="btn-primary cta-btn" onClick={() => setIsModalOpen(true)}>Shop Leafy_lure</button>
         </motion.div>
       </div>
-    </section>
+      </section>
+      <ShopModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 };
 
